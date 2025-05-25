@@ -21,6 +21,7 @@ CREATE TABLE customers (
     name VARCHAR(100),
     email VARCHAR(100)
 );
+
 এখানে,
 customer_id হলো Primary Key এটি customers টেবিলের প্রতিটি সারিকে আলাদাভাবে চিহ্নিত করে।
 
@@ -30,9 +31,9 @@ CREATE TABLE orders (
     customer_id INT,
     FOREIGN KEY (customer_id) REFERENCES customers(customer_id)
 );
-এখানে,
-order_id হলো Primary Key এটি orders টেবিলের প্রতিটি সারিকে আলাদাভাবে চিহ্নিত করে।
 
-customer_id হলো Foreign Key এটি customers টেবিলের customer_id-এর উপর নির্ভর করে, অর্থাৎ কোন customer অর্ডার দিয়েছে, তা নির্দেশ করে।
+এখানে order_id হলো Primary Key এটি orders টেবিলের প্রতিটি সারিকে আলাদাভাবে চিহ্নিত করে।
+
+আর customer_id হলো Foreign Key এটি customers টেবিলের customer_id-এর উপর নির্ভর করে, অর্থাৎ কোন customer অর্ডার দিয়েছে, তা নির্দেশ করে।
 
 ```
