@@ -1,8 +1,9 @@
 -- Active: 1747449241893@@localhost@5432@conservation_db
--- create a database
+-----> CREATE DATABASE <--------
+
 CREATE DATABASE conservation_db;
 
---create table rangers
+-----> TABLE rangers <--------
 
 CREATE TABLE rangers(
     ranger_id SERIAL PRIMARY KEY,
@@ -10,7 +11,7 @@ CREATE TABLE rangers(
     region TEXT
 );
 
--- create table species
+-----> TABLE species <--------
 
 CREATE TABLE species(
    species_id SERIAL PRIMARY KEY,
@@ -19,7 +20,7 @@ CREATE TABLE species(
    discovery_date DATE,
    conservation_status VARCHAR(255)
 );
--- create table sightings
+-----> TABLE sightings <--------
 
 CREATE TABLE sightings(
     sighting_id SERIAL PRIMARY KEY,
@@ -30,7 +31,7 @@ CREATE TABLE sightings(
     notes TEXT
 );
 
--- insert values 
+-----> INSERT VALUES <--------
 
 INSERT INTO rangers (name,region)
 VALUES ('Alice Green','Northern Hills'),
