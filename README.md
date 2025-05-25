@@ -12,3 +12,27 @@ PostgreSQL হলো বিশ্বের সবচেয়ে উন্নত
 ### Primary Key ও Foreign Key ?
 
 Primary Key একটি row কে আলাদাভাবে চিহ্নিত করে, এবংForeign Key দুটি টেবিলের মধ্যে সম্পর্ক তৈরি করে, যা অন্য একটি টেবিলের Primary Key কে রেফারেন্স করে।
+
+নিচে দুটি ছোট টেবিলের উদাহরণ দেওয়া হলো যেগুলো একটি Foreign Key দিয়ে পরস্পরের সাথে সম্পর্কিত।
+
+```
+CREATE TABLE customers (
+    customer_id INT PRIMARY KEY,
+    name VARCHAR(100),
+    email VARCHAR(100)
+);
+এখানে,
+customer_id হলো Primary Key এটি customers টেবিলের প্রতিটি সারিকে আলাদাভাবে চিহ্নিত করে।
+
+CREATE TABLE orders (
+    order_id INT PRIMARY KEY,
+    order_date DATE,
+    customer_id INT,
+    FOREIGN KEY (customer_id) REFERENCES customers(customer_id)
+);
+এখানে,
+order_id হলো Primary Key এটি orders টেবিলের প্রতিটি সারিকে আলাদাভাবে চিহ্নিত করে।
+
+customer_id হলো Foreign Key এটি customers টেবিলের customer_id-এর উপর নির্ভর করে, অর্থাৎ কোন customer অর্ডার দিয়েছে, তা নির্দেশ করে।
+
+```
