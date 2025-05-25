@@ -37,3 +37,31 @@ CREATE TABLE orders (
 আর customer_id হলো Foreign Key এটি customers টেবিলের customer_id-এর উপর নির্ভর করে, অর্থাৎ কোন customer অর্ডার দিয়েছে, তা নির্দেশ করে।
 
 ```
+
+### VARCHAR ও CHAR ?
+
+CHAR নির্দিষ্ট দৈর্ঘ্যের জন্য ব্যবহৃত হয়, তবে ভেরিয়েবলের দৈর্ঘ্য ছোট বা বড় হোক, এটি সবসময় উল্লেখিত সম্পূর্ণ জায়গা ব্যবহার করে।
+
+আর VARCHAR নির্দিষ্ট সর্বোচ্চ দৈর্ঘ্যের জন্য ব্যবহৃত হয়, কিন্তু এটি ভেরিয়েবলের প্রকৃত দৈর্ঘ্য অনুযায়ী জায়গা ব্যবহার করে।
+
+দুটি কলাম একটি CHAR(5), আরেকটি VARCHAR(5)।
+
+```
+
+CREATE TABLE something_char (
+    name CHAR(10)
+);
+
+
+CREATE TABLE something_varchar (
+    name VARCHAR(50)
+);
+INSERT INTO something_char VALUES ('some');
+
+INSERT INTO something_varchar VALUES ('some');
+
+এখানে something_char টেবিলে some ১০ দৈর্ঘ্যের জায়গা নিবে,যদিও some এর দৈর্ঘ্য ৪ ।
+
+আর something_varchar টেবিলে some মাত্র ৪ দৈর্ঘ্যের জায়গা নিবে, যদিও VARCHAR-এর দৈর্ঘ্য ৫০ ।
+
+```
