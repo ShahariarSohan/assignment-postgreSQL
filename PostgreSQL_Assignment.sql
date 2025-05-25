@@ -91,10 +91,15 @@ WHERE EXTRACT(YEAR FROM discovery_date) < 1800;
 
 ----> PROBLEM NO 8<-------
 
-SELECT * FROM sightings;
+
+ 
 
 ----> PROBLEM NO 9<-------
 
-DELETE  FROM rangers
-FULL JOIN sightings USING (ranger_id)
-WHERE sighting_id IS NULL;
+ DELETE FROM rangers
+ WHERE ranger_id IN (SELECT ranger_id FROM rangers
+ FULL JOIN sightings USING (ranger_id)
+ WHERE sighting_id IS NULL);
+
+
+-------->  END  <----------------
