@@ -1,4 +1,4 @@
--- Active: 1747449241893@@localhost@5432@conservation_db
+
 -----> CREATE DATABASE <--------
 
 CREATE DATABASE conservation_db;
@@ -51,6 +51,8 @@ VALUES( 1 , 1,  'Peak Ridge', '2024-05-10 07:45:00 ', 'Camera trap image capture
        (3 , 3 ,  'Bamboo Grove East' ,' 2024-05-15 09:10:00', 'Feeding observed' ),
        (2 , 1 ,  ' Snowfall Pass', '2024-05-18 18:30:00 ',NULL );
 
+-----> SELECT QUERIES <--------
+
 select * from  rangers;      
 select * from  species;      
 select * from  sightings;
@@ -66,7 +68,7 @@ SELECT  COUNT(DISTINCT species_id) AS  unique_species_count FROM sightings;
 
 ----> PROBLEM NO 3 <-------
 
-SELECT * FROM sightings WHERE location LIKE '%Pass%';
+SELECT * FROM sightings WHERE location ILIKE '%Pass%';
 
 ----> PROBLEM NO 4 <-------
 
@@ -94,8 +96,13 @@ WHERE EXTRACT(YEAR FROM discovery_date) < 1800;
 
 ----> PROBLEM NO 8<-------
 
-
- 
+SELECT sighting_id,
+CASE 
+   WHEN sighting_time::TIME >='00:00:00' AND sighting_time::TIME <'12:00:00' THEN 'Morning'
+   WHEN sighting_time::TIME >='12:00:00' AND sighting_time::TIME <='17:00:00' THEN 'Afternoon'
+   ELSE 'Evening'
+END AS time_of_day
+FROM sightings;
 
 ----> PROBLEM NO 9<-------
 

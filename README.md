@@ -75,8 +75,8 @@ example ::
 
 ```
 id	name	marks
-1	রাহিম	80
-2	করিম	75
+1	রহিম	80
+2	করিম   75
 3	সুমন	90
 
 SELECT COUNT(*) FROM students;
