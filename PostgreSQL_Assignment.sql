@@ -24,15 +24,17 @@ CREATE TABLE species(
 
 CREATE TABLE sightings(
     sighting_id SERIAL PRIMARY KEY,
-    ranger_id INT REFERENCES rangers(ranger_id),
-    species_id INT REFERENCES species(species_id),
+    ranger_id INT,
+    FOREIGN KEY (ranger_id)  REFERENCES rangers(ranger_id),
+    species_id INT,
+    FOREIGN KEY (species_id)  REFERENCES species(species_id),
     sighting_time TIMESTAMP,
     location TEXT,
     notes TEXT
 );
 
 -----> INSERT VALUES <--------
-
+DROP TABLE species;
 INSERT INTO rangers (name,region)
 VALUES ('Alice Green','Northern Hills'),
        ('Bob White','River Delta'),
