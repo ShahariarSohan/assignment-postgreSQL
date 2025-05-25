@@ -51,17 +51,42 @@ CHAR নির্দিষ্ট দৈর্ঘ্যের জন্য ব্
 CREATE TABLE something_char (
     name CHAR(10)
 );
-
-
 CREATE TABLE something_varchar (
     name VARCHAR(50)
 );
-INSERT INTO something_char VALUES ('some');
 
+
+INSERT INTO something_char VALUES ('some');
 INSERT INTO something_varchar VALUES ('some');
 
 এখানে something_char টেবিলে some ১০ দৈর্ঘ্যের জায়গা নিবে,যদিও some এর দৈর্ঘ্য ৪ ।
 
 আর something_varchar টেবিলে some মাত্র ৪ দৈর্ঘ্যের জায়গা নিবে, যদিও VARCHAR-এর দৈর্ঘ্য ৫০ ।
+
+
+```
+
+### COUNT(),AVG(),SUM() aggregate function ?
+
+একটি Aggregate Function একাধিক মানের উপর calculation চালায় এবং একটি result দে ।
+এই ফাংশনগুলো সাধারণত GROUP BY এর সাথে ব্যবহার করা হয়।
+
+example ::
+
+```
+id	name	marks
+1	রাহিম	80
+2	করিম	75
+3	সুমন	90
+
+SELECT COUNT(*) FROM students;
+COUNT() -- কতজন ছাত্র আছে সেটা দিবে।
+
+SELECT AVG(marks) FROM students;
+AVG() -- গড় নম্বর দিবে।
+
+SELECT SUM(marks) FROM students;
+SUM() — সব নম্বর যোগ করে দিবে।
+
 
 ```
