@@ -1,3 +1,4 @@
+-- Active: 1747449241893@@localhost@5432@conservation_db
 
 -----> CREATE DATABASE <--------
 
@@ -34,7 +35,7 @@ CREATE TABLE sightings(
 );
 
 -----> INSERT VALUES <--------
-DROP TABLE species;
+
 INSERT INTO rangers (name,region)
 VALUES ('Alice Green','Northern Hills'),
        ('Bob White','River Delta'),
